@@ -1,67 +1,58 @@
-import java.util.*;
+import java.util.Scanner;
 
-public class Employee{
-	
-	    int[] no = new int[20];
-	    int count,i,e;
-	    String[] name = new String[50];
-	    float[] salary = new float[20];
-	    
-	    
-	    void getinformation(int c){
-	        Scanner s = new Scanner(System.in);
-	        count=c;
-	          for(i=0;i<c;i++){
-	              System.out.println("Enter Employee Number : ");
-	              no[i]=s.nextInt();
-	              System.out.println("Enter Employee Name   : ");
-	              name[i]=s.next();
-	              System.out.println("Enter Employee Salary : ");
-	              salary[i]=s.nextFloat();   
-	        } 
-	    }
-	    
-	    void printinformation(int c){
-	        count =c;
-	        System.out.println("***********Employee Details************");
-	        for(i=0;i<count;i++)
-	        {
-	           System.out.println(" Enployee Number:"+no[i]);
-	           System.out.println("Employee Name:"+name[i]);
-	           System.out.println("Employee Salary:"+salary[i]);    
-	        }       
-	    }
-	    
-	    void display(int emp_no, int c) {
-	    	int flag=0;
-	    	e = emp_no;
-	    	count = c;
-	    	for(i=0;i<count;i++)
-	    	{
-	    		if(no[i]==e)
-	    		{   
-	    	    	System.out.println("Employee No    : "+no[i]);
-	    	        System.out.println("Employee Name  : "+name[i]);
-	    	        System.out.println("Employee Salary: "+salary[i]);
-	    	        flag++;
-	    		}
-	    				
-	    	} 
-	    	if(flag==0)
-	    		System.out.println("Record Not Found!");
-	   }
-	               
-	    public static void main(String[] args){
-	        Employee obj = new Employee();
-	        Scanner sc = new Scanner(System.in);
-	        System.out.println("Enter the number of records to be stored:");
-	        obj.count = sc.nextInt();
-	        obj.getinformation(obj.count);
-	        obj.printinformation(obj.count);
-	        System.out.println("\n_Do you want to search any specific record?");
-	        System.out.println("Enter Employee Number :");
-	        int e = sc.nextInt();
-	        obj.display(e,obj.count);
-	        sc.close();     
-	    }   
-	}
+public class Employee {
+    int empId;
+    double salary;
+    String name,address;
+    public Employee(int empId,double salary,String name,String address)
+    {
+        this.empId=empId;
+        this.salary=salary;
+        this.name=name;
+        this.address=address;
+    }
+}
+
+ class Teacher extends Employee
+{
+String department,subject;
+public Teacher(int empId,double salary,String name,String address,String department,String subject)
+{
+    super(empId,salary,name,address);
+    this.department=department;
+    this.subject=subject;
+}
+void display()
+{
+    System.out.println("\nEMPID\t\tSALARY\t\tNAME\t\tADDRESS\t\tDEPARTMENT\t\tSUBJECT\n");
+    System.out.println(empId+"\t\t"+salary+"\t\t"+name+"\t\t"+address+"\t\t"+department+"\t\t"+subject+"\n");
+}
+
+//public class DisplayDetails{
+    public static void main(String[] args){
+        Scanner s=new Scanner(System.in);
+        System.out.println("Enter the total number of records to be stored : ");
+        int count=s.nextInt();
+        Teacher t[]=new Teacher[count];
+        int i;
+        for(i=0;i<count;i++)
+        {
+            System.out.println("Enter empid,salary,name,address,department and subject");
+            int p=s.nextInt();
+            double r=s.nextDouble();
+            String q=s.nextLine();
+            String u=s.nextLine();
+            String v=s.nextLine();
+            String x=s.nextLine();
+            t[i]=new Teacher(p,r,q,u,v,x);
+          
+        }
+        for(i=0;i<count;i++)
+        {
+            t[i].display();
+        } 
+        
+    }
+    
+
+}
