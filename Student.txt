@@ -21,7 +21,7 @@ public class Student {
 	hindi_mark=sc.nextInt();
 	System.out.println("enter the english mark of student");
 	english_mark=sc.nextInt();
-}
+	}
 }
 class sports extends Student{
 	int item_1;
