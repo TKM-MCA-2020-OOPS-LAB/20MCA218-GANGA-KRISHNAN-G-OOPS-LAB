@@ -1,11 +1,8 @@
-package Arithemetic;
-
-import Arithemetic.operations;
-
-public class co4_q2main {
-
+package Arithmetic;
+import Arithmetic.Operations;
+public class Calc {
 	public static void main(String[] args) {
-		operations obj=new operations();
+		Operations obj=new Operations();
 		obj.input();
 		obj.addition();
 		obj.subtraction();
@@ -14,4 +11,3 @@ public class co4_q2main {
 		}
 
 }
-© 2021 GitHub, Inc.
